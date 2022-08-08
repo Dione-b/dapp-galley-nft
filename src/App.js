@@ -19,8 +19,8 @@ function App() {
     await getData(res[0])
   }
 
-   // Uma função para diminuir o endereço da carteira de alguém, não é necessário mostrar a coisa toda.
-   const shortenAddress = (str) => {
+  // Uma função para diminuir o endereço da carteira de alguém, não é necessário mostrar a coisa toda.
+  const shortenAddress = (str) => {
     return str.substring(0, 6) + "..." + str.substring(str.length - 4);
   };
 
@@ -34,6 +34,7 @@ function App() {
       );
       
       result = await result.json();
+
       setData(result.assets);
       console.log(result);
 
@@ -46,13 +47,13 @@ function App() {
   return (
     <div className="App">
       
-      <h3 className='mt-4 text-light'>Gallery NFT</h3>
+      <h2 className='mt-2 text-light fw-bolder'>Gallery NFT</h2>
       
       {account === '' ? 
       (
-        <button className='cta-button connect-wallet-button mt-5' onClick={connect}>Connect Button</button>
+        <button className='cta-button connect-wallet-button mt-4' onClick={connect}>Connect Button</button>
       ) : 
-        <button className='cta-button connect-wallet-button'>{shortenAddress(account)}</button>
+        <button className='cta-button connect-wallet-button m-4'>{shortenAddress(account)}</button>
       }
 
       <div className='Container row justify-content-center' id='main-card'>
