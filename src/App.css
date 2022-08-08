@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #090433;
+  background-color: #4335c2;
 }
 
 .App {
@@ -16,14 +16,56 @@
   width: 75rem;
 }
 
-.button {
-  position: relative;
-  margin-left: 30rem;
+footer{
+  position: fixed; 
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
 }
 
-@media screen and (min-width: 40em) {
-  .button {
-    margin: 0 auto;
-    margin-top: 15px;
-  }
+footer a {
+  color: #fff;
+  list-style: none;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+footer a:hover{
+  color: #fff;
+}
+
+.twitter-logo {
+  width: 35px;
+  height: 35px;
+}
+
+/* Efect button */
+
+.cta-button {
+  height: 45px;
+  border: 0;
+  width: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+}
+
+.connect-wallet-button {
+  background: -webkit-linear-gradient(left, #60c657, #35aee2);
+  background-size: 200% 200%;
+  animation: gradient-animation 4s ease infinite;
+}
+
+@media screen and (max-width: 32em) {
+    #main-card{
+      margin-left: 7rem;
+    }
+    .footer-container{
+      margin-right: 2rem;
+    }
 }

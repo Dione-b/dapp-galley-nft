@@ -1,6 +1,11 @@
 import './App.css';
 import { ethers } from 'ethers';
 import { useState } from 'react';
+import twitterLogo from "./assets/twitter-logo.svg"
+
+const TWITTER_HANDLE = "Diiibastos"
+const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`
+
 
 function App() {
 
@@ -27,9 +32,9 @@ function App() {
         `https://testnets-api.opensea.io/api/v1/assets?owner=${_account}&order_direction=desc&limit=8&include_orders=false`, 
         options
       );
-
+      
       result = await result.json();
-      await setData(result.assets);
+      setData(result.assets);
       console.log(result);
 
     } catch (error) {
@@ -45,24 +50,24 @@ function App() {
       
       {account === '' ? 
       (
-        <button className='btn btn-primary button' onClick={connect}>Connect Button</button>
+        <button className='cta-button connect-wallet-button mt-5' onClick={connect}>Connect Button</button>
       ) : 
-        <button className='btn btn-success button'>{shortenAddress(account)}</button>
+        <button className='cta-button connect-wallet-button'>{shortenAddress(account)}</button>
       }
 
-      
-
-      <div className='Container row' id='main-card'>
+      <div className='Container row justify-content-center' id='main-card'>
         {
           data.map((nft, index) => {
             return (
               <div className='col-md-3 mt-2' key={index}>
                 <div className="card p-2" style={{width: "15rem"}}>
-                  <img src={nft.image_original_url}  width={100} height={230} className="card-img-top" alt="Card NFT"/>
+                  <img src={nft.image_original_url}  width={95} height={170} className="card-img-top" alt="Card NFT"/>
                   <div className="card-body">
                     <h5 className="card-title text-light">{nft.name}</h5>
                     <hr className='text-light' />
+                    <div className='col-lg-12' style={{height: "3.8rem"}}>
                     <p className="card-text text-light">{nft.description}</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -71,7 +76,16 @@ function App() {
           })
         }
       </div>
-    </div>
+    <footer>
+    <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
+      <a
+        className="footer-text"
+        href={TWITTER_LINK}
+        target="_blank"
+        rel="noreferrer"
+      >{`feito com ❤️ por @${TWITTER_HANDLE}`}</a>
+    </footer>
+  </div>
   );
 }
 
